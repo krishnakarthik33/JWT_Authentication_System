@@ -1,16 +1,179 @@
-# React + Vite
+# JWT Authentication System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+JWT Authentication System is a full-stack web application that demonstrates secure user authentication and authorization using JSON Web Tokens (JWT).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The application allows users to register, log in, access protected routes, and securely interact with protected backend APIs.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- User Registration
+- User Login
+- Password Hashing using bcrypt
+- JWT Token Generation
+- Protected Frontend Routes
+- Protected Backend APIs
+- Logout Functionality
+- MongoDB Database Integration
+- React Router Navigation
+- Secure Authentication Flow
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tech Stack
+
+### Frontend
+
+- React.js
+- React Router DOM
+- Axios
+- CSS
+
+### Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT (jsonwebtoken)
+- bcryptjs
+- dotenv
+- cors
+
+---
+
+## Project Structure
+
+```
+jwt-auth-project
+│
+├── backend
+│   ├── config
+│   ├── middleware
+│   ├── models
+│   ├── routes
+│   ├── server.js
+│   └── .env
+│
+├── frontend
+│   ├── src
+│   │   ├── pages
+│   │   ├── components
+│   │   ├── App.jsx
+│   │   ├── api.js
+│   │   └── main.jsx
+│
+└── README.md
+```
+
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/yourusername/CodeAlpha_JWT_Authentication_System.git
+```
+
+---
+
+### Backend Setup
+
+```bash
+cd backend
+
+npm install
+
+npm run dev
+```
+
+---
+
+### Frontend Setup
+
+```bash
+cd frontend
+
+npm install
+
+npm run dev
+```
+
+---
+
+## Environment Variables
+
+Create a `.env` file inside backend folder:
+
+```env
+PORT=5000
+
+MONGO_URI=mongodb://127.0.0.1:27017/jwtauth
+
+JWT_SECRET=mysecretkey
+```
+
+---
+
+## API Endpoints
+
+### Register User
+
+```http
+POST /api/auth/register
+```
+
+### Login User
+
+```http
+POST /api/auth/login
+```
+
+### Protected Profile Route
+
+```http
+GET /api/auth/profile
+```
+
+---
+
+## Authentication Flow
+
+1. User registers with email and password.
+2. Password is hashed using bcrypt before storing in MongoDB.
+3. User logs in with valid credentials.
+4. Server generates a JWT token.
+5. Token is stored on the client side.
+6. Protected routes verify the JWT before granting access.
+
+---
+
+## Security Features
+
+- Password hashing using bcrypt
+- JWT-based authentication
+- Protected API routes
+- Protected frontend routes
+- Secure token verification
+- Unauthorized access prevention
+
+---
+
+## Future Enhancements
+
+- Role-Based Authentication
+- Admin Dashboard
+- Refresh Tokens
+- Email Verification
+- Password Reset Functionality
+- HTTP-Only Cookies
+
+---
+
+## Author
+
+Developed as part of the CodeAlpha Full Stack Web Development Internship Program.
